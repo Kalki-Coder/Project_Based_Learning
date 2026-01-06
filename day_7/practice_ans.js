@@ -109,3 +109,50 @@
 // function solveLinEquation(a, b, c, x, y) {
 //     return a * x + b * y + c;
 // }
+
+// function printArray (arr) {
+//     for ( i = 0 ; i < arr.length ; i++ ) {
+//         console.log(arr[i]);
+//     }
+// }
+// const myArray = ['apple', 'banana', 'cherry'];
+// printArray(myArray);
+
+// function showDateTime() {
+//     const currentdate = new Date();
+//     let today = String(currentdate.getUTCDate()).padStart(2,'0');
+//     let month = String(currentdate.getUTCMonth() + 1).padStart(2,'0');
+//     let year = String(currentdate.getFullYear()).padStart(4,'000');
+//     let hour = ('0' + currentdate.getHours()).slice(-2);
+//     let minutes = currentdate.getMinutes();
+//     return `${today}/${month}/${year} ${hour}:${minutes}`
+// }
+
+// console.log(showDateTime())
+
+// function swapValues(a, b) {
+//   return `x => ${b}, y => ${a}`;
+// }
+
+// console.log(swapValues(9, 29));
+
+// function reverseArray(param) {
+//   let reverse_array = [];
+//   for (i = param.length - 1; i >= 0; i--) {
+//     reverse_array.push(param[i]);
+//   }
+//   return reverse_array;
+// }
+
+// console.log(reverseArray([1, 2, 3, 4, 5]))
+// //[5, 4, 3, 2, 1]
+// console.log(reverseArray(['A', 'B', 'C']))
+// //['C', 'B', 'A']
+
+// function capitalizeArray(param) {
+//     let arry_string = param.join(" ");
+//     return (arry_string.toUpperCase()).split(" ");
+
+// }
+// const countries = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland'];
+// console.log(capitalizeArray(countries));

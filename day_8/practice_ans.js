@@ -39,3 +39,64 @@ and will NOT be executed*/ // multiline comment
 // console.log(b);
 
 // The reverse() method returns a new array, the original array is not affected. false
+
+// const x = ['Apple', 'Banana', 'Cherry'];
+// {
+//   const x = ['Audi', 'BMW', 'Chevrolet'];
+// }
+// alert(x[1]); // Banana
+
+
+// let x = ['Apple', 'Banana', 'Cherry'];
+// {
+//     x = ['Audi', 'BMW', 'Chevrolet'];
+// }
+// alert(x[1]); // Error
+
+// const d = new Date(2024, 10, 18);
+// console.log(d);
+
+
+// const d = new Date(24, 10, 18);
+// console.log(d); //1924-11-17T18:30:00.000Z
+
+// const d = new Date('2024');
+// console.log(d); //2024-01-01T00:00:00.000Z
+
+// UTC (Universal Time Coordinated) is the same as GMT (Greenwich Mean Time). //true
+
+// let x = Date.parse('March 30, 2011');
+// console.log(x); Date.parse() = “Convert a date string → milliseconds since 1970”
+
+// let d = new Date('March 30, 2011');
+// console.log(d); // 2011-03-29T18:30:00.000Z
+
+// let x = Math.round(5.3);
+// let y = Math.floor(5.3);
+// console.log(x, y);
+
+// let x = Math.random();
+// console.log(x); // no parameter required
+
+//What is expected format of the setTime() method? - Milliseconds since January 1, 1970
+
+// let i, x = '';
+// for (i = 0; i < 5; i = i + 2) {
+//     x += i;
+// }
+// console.log(x);
+
+//In programming, "enumerable" generally means that something can be counted, ordered, or iterated over one by one
+
+// const nums = [10, 20, 30];
+
+// for (let index in nums) {
+//     console.log(index, nums[index]);
+// }
+
+// nums.custom = 99;
+
+// for (let i in nums) {
+//   console.log(i);
+// }
+

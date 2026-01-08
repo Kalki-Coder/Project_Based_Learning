@@ -46,7 +46,6 @@ and will NOT be executed*/ // multiline comment
 // }
 // alert(x[1]); // Banana
 
-
 // let x = ['Apple', 'Banana', 'Cherry'];
 // {
 //     x = ['Audi', 'BMW', 'Chevrolet'];
@@ -55,7 +54,6 @@ and will NOT be executed*/ // multiline comment
 
 // const d = new Date(2024, 10, 18);
 // console.log(d);
-
 
 // const d = new Date(24, 10, 18);
 // console.log(d); //1924-11-17T18:30:00.000Z
@@ -100,3 +98,12 @@ and will NOT be executed*/ // multiline comment
 //   console.log(i);
 // }
 
+// let x = typeof(Number('John'));
+// console.log(x);
+// number
+
+// let i = 0;
+// while (i < 10) {
+//   console.log(i);
+//   i++;
+// }

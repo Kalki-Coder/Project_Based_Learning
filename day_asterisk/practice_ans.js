@@ -117,18 +117,57 @@ and will NOT be executed*/ // multiline comment
 // const myObj = Object.fromEntries(fruits);
 // console.log(myObj);
 
-const person = {
-  firstName: "John",
-  lastName: "Doe",
-  id: 5566,
-  fullName: function() {
-    return this.firstName + " " + this.lastName;
-  }
-};
+// const person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   id: 5566,
+//   fullName: function() {
+//     return this.firstName + " " + this.lastName;
+//   }
+// };
 
 // let name1 = person.fullName();
 // console.log(name1); John Doe
 
-
-// let name1 = person.fullName; 
+// let name1 = person.fullName;
 // console.log(name1); [Function: fullName]
+
+// const person = {
+//   name: "John",
+//   age: 30,
+//   city: "New York",
+// };
+
+// // Build a Text
+// let text = "";
+// for (let x in person) {
+//   text += person[x] + " ";
+// }
+
+// console.log(text);
+
+
+// Create an Object
+// const person = {
+//   name: "John",
+//   age: 30,
+//   city: "New York"
+// };
+
+// // Create an Array
+// const myArray = Object.keys(person);
+// console.log(myArray);
+
+// // Stringify the Array
+// let text = myArray.join();
+// console.log(text);
+
+const fruits = {Bananas:300, Oranges:200, Apples:500};
+
+let text = "";
+for (let [fruit, value] of Object.entries(fruits)) {
+  text += fruit + ": " + value + "<br>";
+}
+
+console.log(text);
+console.log(JSON.stringify(fruits))

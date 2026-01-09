@@ -116,3 +116,19 @@ and will NOT be executed*/ // multiline comment
 
 // const myObj = Object.fromEntries(fruits);
 // console.log(myObj);
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// let name1 = person.fullName();
+// console.log(name1); John Doe
+
+
+// let name1 = person.fullName; 
+// console.log(name1); [Function: fullName]

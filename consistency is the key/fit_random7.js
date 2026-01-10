@@ -146,7 +146,6 @@ and will NOT be executed*/ // multiline comment
 
 // console.log(text);
 
-
 // Create an Object
 // const person = {
 //   name: "John",
@@ -171,3 +170,34 @@ and will NOT be executed*/ // multiline comment
 
 // console.log(text);
 // console.log(JSON.stringify(fruits))
+
+// console.log(Date.now());
+// const date_today = new Date();
+// date_today.setTime(176804);
+// console.log(date_today);
+
+// Adding elements with high indexes can create undefined "holes" in an array:
+// const fruits = ["Banana", "Orange", "Apple"];
+// fruits[6] = "Lemon";  // Creates undefined "holes" in fruits
+// console.log(fruits);
+
+// [ 'Banana', 'Orange', 'Apple', <3 empty items>, 'Lemon' ]
+
+// const points = new Array(40);
+// console.log(points);
+// [ <40 empty items> ]
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+// const myGirls = ["Cecilie", "Lone"];
+// const myBoys = ["Emil", "Tobias", "Linus"];
+
+// const myChildren = myGirls.concat(myBoys);
+// console.log(myChildren);
+
+// const arr1 = ["Cecilie", "Lone"];
+// const arr2 = ["Emil", "Tobias", "Linus"];
+// const arr3 = ["Robin", "Morgan"];
+// console.log(arr1.concat(arr2, arr3));
+
+// const arr1 = ["Emil", "Tobias", "Linus"];
+// const myChildren = arr1.concat("Peter"); 

@@ -162,12 +162,12 @@ and will NOT be executed*/ // multiline comment
 // let text = myArray.join();
 // console.log(text);
 
-const fruits = {Bananas:300, Oranges:200, Apples:500};
+// const fruits = {Bananas:300, Oranges:200, Apples:500};
 
-let text = "";
-for (let [fruit, value] of Object.entries(fruits)) {
-  text += fruit + ": " + value + "<br>";
-}
+// let text = "";
+// for (let [fruit, value] of Object.entries(fruits)) {
+//   text += fruit + ": " + value + "<br>";
+// }
 
-console.log(text);
-console.log(JSON.stringify(fruits))
+// console.log(text);
+// console.log(JSON.stringify(fruits))

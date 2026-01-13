@@ -1,6 +1,6 @@
-# 🚀 My Programming Journey – With Live Practice ('om namo bhagavate vasudevaya namah')
+# 🚀 My Programming Journey – With Live Practice
 
-## 👋 Welcome!
+## 👋 Welcome! (ॐ नमो भगवते वासुदेवाय नमः)
 
 This repository documents my **learning journey in web development** through **hands-on practice** and **exercise-based learning**.
 

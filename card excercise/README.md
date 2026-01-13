@@ -7,7 +7,7 @@ Thanks for checking out this work.
 
 ### Preview
 
-![excercise](images/preview.jpg)
+![excercise](images/preview1.jpg)
 
 ### What I learned
 

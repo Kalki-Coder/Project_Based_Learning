@@ -32,7 +32,4 @@ Instead of just watching tutorials, I actively practice concepts and store my so
 ## 📂 Repository Structure
 
 ```text
-📁 html/
-📁 css/
-📁 javascript/
-📁 mini-exercises/
+📁 Random_Shit/

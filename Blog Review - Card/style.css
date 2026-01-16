@@ -1,4 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+:root {
+  --bg-clr: rgba(185, 170, 10, 1);
+  --cd-clr: rgba(255, 255, 255, 0.75); /* Lower opacity for glass effect */
+  --ani-clr: rgba(71, 231, 183, 0.712);
+  --txt-pr: rgb(4, 4, 37);
+  --txt-sc: rgb(20, 0, 0);
+  --bg-shdw: 0px 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
 
 * {
   margin: 0;
@@ -6,73 +13,101 @@
   box-sizing: border-box;
 }
 
-html,
 body {
-  background-color: hsl(47, 88%, 63%);
-  width: 100%;
-  height: 100%;
+  background-color: var(--bg-clr);
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Outfit", Arial, sans-serif;
-  font-style: normal;
-  /* font-optical-sizing: auto; */
+  font-family: "Outfit", sans-serif;
+  background-image: radial-gradient(circle at 0% 0%, #cf4942 0, transparent 50%),
+    radial-gradient(circle at 100% 0%, #6a37a3 0, transparent 70%),
+    radial-gradient(circle at 0% 100%, #47cc29 0, transparent 50%),
+    radial-gradient(circle at 100% 100%, #d6891e 0, transparent 50%);
+  perspective: 1000px; /*Essential for 3D Effect*/
 }
 
-.card {
-  height: 380px;
-  width: 250px;
-  box-shadow: 10px 10px 4px black;
-  border-radius: 16px;
-  padding: 10px 10px 0px 10px;
-  background-color: white;
+.container {
+  transform-style: preserve-3d;
 }
 
-.card .main {
-  border-radius: 16px;
-  height: 40%;
+#card {
   width: 100%;
-  margin-bottom: 10px;
+  max-width: 380px;
+  box-shadow: var(--bg-shdw);
+  border-radius: 24px;
+  margin: 24px 0px;
+  padding: 16px;
+  background-color: var(--cd-clr);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.1s ease-out;
 }
 
-._tag {
-  display: inline;
-  background-color: hsl(47, 88%, 63%);
-  padding: 6px 12px;
-  border-radius: 12px;
+.upper {
+  padding: 0.1px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transform: translateZ(20px);
+}
+
+.illus {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 40px -15px var(--ani-clr);
+}
+
+.middle {
+  color: var(--txt-pr);
+  font-size: 1.2rem;
+  line-height: 2.6;
+}
+
+.middle .tag {
+  padding: 10px 25px;
   font-weight: 700;
-}
-
-._date {
-  padding: 10px 5px 7.5px 0px;
-}
-
-h3 {
-  font-weight: bolder;
-  padding: 0px 0px 7px;
-}
-
-p {
-  padding: 0px 0px 3px;
-}
-
-.author {
-  display: flex;
-  align-items: left;
-  gap: 10px;
-}
-
-.author img {
   display: inline;
-  height: 35px;
-  padding: 0px 0px 0px 0px;
-  width: 36px;
-  border-radius: 50%;
-  
+  border: 1px solid var(--ani-clr);
+  background-color: var(--ani-clr);
+  border-radius: 16px;
 }
 
-.author span {
-  font-size: 16px;
-  font-weight: 900;
-  padding: 3px 13px 13px 0px;
+.lowerhalf {
+  transform: translateZ(10px);
+}
+.content h1 {
+  color: var(--txt-pr);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;  
+}
+
+.content p {
+  font-size: 1.3rem;
+  color: var(--txt-sc);
+  font-weight: 400;
+  margin-bottom: 18px;
+  line-height: 1.5;
+  padding: 0 1px;
+}
+
+.lower {
+  display: flex;
+}
+
+.lower img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--ani-clr);
+}
+
+.lower span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--txt-pr);
+  padding: 15px;
 }

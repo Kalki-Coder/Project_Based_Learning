@@ -37,9 +37,14 @@ This project helped me master CSS 3D environments. A key snippet I used to creat
 .qr-container {
   transform: translateZ(20px); /* Pushes the image "closer" to the user */
 }
+```
 
 And the JavaScript logic to map mouse coordinates to rotation degrees:
+
+```js
 
 const xAxis = (window.innerWidth / 2 - e.pageX) / 20; 
 const yAxis = (window.innerHeight / 2 - e.pageY) / 20;
 card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+
+```

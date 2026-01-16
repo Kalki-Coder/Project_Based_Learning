@@ -1,19 +1,39 @@
-# QR Code Card Excercise - Solution
+# 🚀 3D Interactive QR Component 
 
-## Welcome! 👋
+![Design Preview](/QR%20Component%20Card/images/Screenshot.png)
 
-Thanks for checking out this work.
-**To do this challenge, I needed basic understanding of HTML and CSS.**
+<div align="center">
+  <a href="https://glassmorphism-qr-component.netlify.app/">See The Magic</a>
+  <span> | </span>
 
-### Preview
+## 📄 Overview
 
-![excercise](images/preview1.jpg)
+This is a "High Level" page of the QR code component.
+Instead of a static card, I engineered a **3D Parallax Tilt Effect** using vanilla JavaScript and CSS perspective to create a premium, interactive user experience.
 
-### What I learned
+### ✨ Key Features
 
-The box-shadow CSS property is used to attach one or more shadow effects to an element's frame, creating a sense of depth and visual hierarchy in web design. It allows you to control the size, blur, offset, and color of the shadow to make elements appear raised or recessed.
+- **3D Tilt Interaction:** The card follows the user's mouse movement in 3D space.
+- **Glassmorphism:** Modern frosted glass aesthetic using `backdrop-filter`.
+- **Z-Axis Layering:** The QR code and text float at different depths (TranslateZ) for a realistic depth effect.
+- **Responsive:** Works seamlessly on mobile and desktop.
+- **Accessibility:** Semantic HTML5 and proper ARIA labels.
 
+## 🛠️ Built With
 
-WCAG (Web Content Accessibility Guidelines) requirements are based on four core principles (POUR): Perceivable (information available to senses), Operable (navigable by keyboard/voice), Understandable (clear language, predictable functions), and Robust (works with various assistive technologies)
+- **HTML5:** Semantic markup.
+- **CSS3:** Custom Properties (Variables), Flexbox, CSS Perspective & Transforms.
+- **JavaScript (ES6):** Logic for mouse-tracking coordinate calculation.
 
+## 💡 What I Learned
 
+This project helped me master CSS 3D environments. A key snippet I used to create the depth effect:
+
+```css
+.card {
+  transform-style: preserve-3d; /* Tells child elements to exist in 3D space */
+}
+
+.qr-container {
+  transform: translateZ(20px); /* Pushes the image "closer" to the user */
+}

@@ -10,7 +10,7 @@ container.addEventListener('mousemove', (e) => {
     card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
 });
 
-// Reset animation when mouse leaves
+// Reset animation when mouse leaves the main screen
 container.addEventListener('mouseleave', () => {
     card.style.transform = `rotateY(0deg) rotateX(0deg)`;
 });

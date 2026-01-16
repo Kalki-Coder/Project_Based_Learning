@@ -4,7 +4,8 @@
   --txt-primary: hsl(218, 44%, 22%);
   --txt-secondary: hsl(220, 15%, 55%);
   --accent-glow: rgba(46, 219, 231, 0.6);
-  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* x-offset y-offset blur spread color */
+
 }
 
 * {
@@ -22,12 +23,14 @@ body {
   font-family: "Outfit", sans-serif;
   /* Subtle animated background mesh */
   background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-  perspective: 1000px; /* Essential for 3D effect */
+  radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+  radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+  radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  perspective: 1000px;  /*Essential for 3D effect*/
   overflow: hidden;
 }
+
+/* radial-gradient( size at <x-position> <y-position>, <start-color> <start-stop>, <end-color> <end-stop>), */
 
 .container {
   /* Acts as the stage for the 3D object */

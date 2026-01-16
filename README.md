@@ -29,7 +29,3 @@ Instead of just watching tutorials, I actively practice concepts and store my so
 
 ---
 
-## 📂 Repository Structure
-
-```text
-📁 Random_Shit/

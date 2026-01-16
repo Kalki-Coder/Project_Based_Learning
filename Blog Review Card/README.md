@@ -33,3 +33,15 @@ container.addEventListener('mousemove', (e) => {
     // Apply the rotation
     card.style.transform = `rotateY(${x_Axis}deg) rotateX(${y_Axis}deg)`;
 });
+```
+The Glassmorphism (CSS)
+The "frosted glass" effect is achieved using a combination of semi-transparent background colors and the backdrop filter.
+
+```css
+#card {
+  background-color: var(--cd-clr); /* rgba(255, 255, 255, 0.75) */
+  backdrop-filter: blur(16px);     /* The blur magic */
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+```

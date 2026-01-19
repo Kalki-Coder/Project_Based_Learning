@@ -34,9 +34,9 @@ This repository serves as a **hands-on learning log** for my practical experimen
 
 | Project Name | Stack | Type | Status |
 | :--- | :--- | :--- | :--- |
-| **[Blog Review Card]** | HTML/CSS/JS | Card | ✅ Completed |
-| **[3D QR Component]** | HTML/CSS/JS | Card | ✅ Completed |
-| **[Social Link's Page]** | HTML/CSS | Card Style | ✅ Completed |
+| **Blog Review Card** | HTML/CSS/JS | Card | ✅ Completed |
+| **3D QR Component** | HTML/CSS/JS | Card | ✅ Completed |
+| **Social Link's Page** | HTML/CSS | Card Style | ✅ Completed |
 
 ## 🚀 How to Run These Projects
 
@@ -62,10 +62,10 @@ Most projects here are separated into their own folders. To run a specific proje
     ```
 
 ## 📈 Activity Log
-* **[18th Jan 2026]** Started learning JavaScript Advanced Topic's.
+* **18th Jan 2026** Started learning JavaScript Advanced Topic's.
 
 ## 🤝 Connect
 I am building in public to track my growth over a long horizon. If you see code that can be improved, feel free to open an issue or PR!
 
 ---
-*Created by [Kalki-Coder](https://github.com/Kalki-Coder)*
+*Created by [Kalki-Coder](https://github.com/Kalki-Coder) with ❤️*

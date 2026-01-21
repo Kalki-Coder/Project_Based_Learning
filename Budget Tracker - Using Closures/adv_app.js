@@ -87,6 +87,50 @@ const uiController = (function () {
       };
     },
 
+    // Inside uiController return { ...
+
+    addListItem: function(obj, type) {
+        let html, newHtml, element;
+
+        // 1. Create HTML string with placeholder text
+        if (type === 'inc') {
+            element = '.income__list';
+            html = '<div class="item" id="inc-%id%"> <div class="item__description">%description%</div> <div class="right"> <div class="item__value">+ %value%</div> </div> </div>';
+        } else if (type === 'exp') {
+            element = '.expenses__list';
+            html = '<div class="item" id="exp-%id%"> <div class="item__description">%description%</div> <div class="right"> <div class="item__value">- %value%</div> </div> </div>';
+        }
+
+        // 2. Replace the placeholder text with some actual data
+        newHtml = html.replace('%id%', obj.id);
+        newHtml = newHtml.replace('%description%', obj.description);
+        newHtml = newHtml.replace('%value%', obj.value);
+
+        // 3. Insert the HTML into the DOM
+        // 'beforeend' means: put it inside the list, but after the last item.
+        document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+    },
+
+    clearFields: function() {
+        let fields, fieldsArr;
+
+        // Select both input fields
+        fields = document.querySelectorAll(DOMstrings.inputDesc + ', ' + DOMstrings.inputValue);
+
+        // Convert the "NodeList" to an "Array" so we can loop over it
+        fieldsArr = Array.prototype.slice.call(fields);
+
+        // Clear each field
+        fieldsArr.forEach(function(current, index, array) {
+            current.value = "";
+        });
+
+        // Set focus back to the first field (description) for better UX
+        fieldsArr[0].focus();
+    },
+
+// ... keep your other functions (getInput, getDOMstrings)
+
     updateTotal: function (total) {
       document.querySelector(DOMstrings.outputLabel).textContent =
         "Total Budget: " + total;
@@ -106,23 +150,24 @@ const controller = (function (budgetCtrl, uiCtrl) {
     document.querySelector(DOM.addBtn).addEventListener("click", ctrlAddItem);
   };
 
-  const ctrlAddItem = function () {
-    // 1. Get field input data
+const ctrlAddItem = function() {
+    // 1. Get the field input data
     const input = uiCtrl.getInput();
-    console.log("input received", input)
 
-    // 2. Add item to the budget controller
     if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
-      const newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-      console.log("Item added to data structure:", newItem);
+        
+        // 2. Add the item to the budget controller
+        const newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+        
+        // 3. Add the item to the UI (NEW!)
+        uiCtrl.addListItem(newItem, input.type);
 
-      // 3. Calculate and Update Budget
-      const total = budgetCtrl.getTotal();
-
-      // 4. Display the budget on the UI
-      uiCtrl.updateTotal(total);
+        // 4. Clear the fields (NEW!)
+        uiCtrl.clearFields();
+        
+        // 5. Calculate and Update Budget (We will do this next)
     }
-  };
+};
 
   return {
     init: function () {

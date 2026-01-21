@@ -58,6 +58,26 @@ const budgetController = (function () {
       return newItem;
     },
 
+    calculateBudget: function () {
+      // 1. Calculate total income and expenses
+      let totalInc = 0;
+      let totalExp = 0;
+
+      data.allItems.inc.forEach(function (cur) {
+        totalInc += cur.value;
+      });
+      data.allItems.exp.forEach(function (cur) {
+        totalExp += cur.value;
+      });
+
+      // 2. Calculate the budget: income - expenses
+      data.totals.inc = totalInc;
+      data.totals.exp = totalExp;
+      data.budget = totalInc - totalExp;
+
+      return data.budget;
+    },
+
     // A helper purely for you to see the data in console
     testing: function () {
       console.log(data);
@@ -83,53 +103,56 @@ const uiController = (function () {
         type: document.querySelector(DOMstrings.inc_expSelector).value,
         description: document.querySelector(DOMstrings.inputDesc).value,
         value: document.querySelector(DOMstrings.inputValue).value,
-
       };
     },
 
     // Inside uiController return { ...
 
-    addListItem: function(obj, type) {
-        let html, newHtml, element;
+    addListItem: function (obj, type) {
+      let html, newHtml, element;
 
-        // 1. Create HTML string with placeholder text
-        if (type === 'inc') {
-            element = '.income__list';
-            html = '<div class="item" id="inc-%id%"> <div class="item__description">%description%</div> <div class="right"> <div class="item__value">+ %value%</div> </div> </div>';
-        } else if (type === 'exp') {
-            element = '.expenses__list';
-            html = '<div class="item" id="exp-%id%"> <div class="item__description">%description%</div> <div class="right"> <div class="item__value">- %value%</div> </div> </div>';
-        }
+      // 1. Create HTML string with placeholder text
+      if (type === "inc") {
+        element = ".income__list";
+        html =
+          '<div class="item" id="inc-%id%"> <div class="item__description">%description%</div> <div class="right"> <div class="item__value">+ %value%</div> </div> </div>';
+      } else if (type === "exp") {
+        element = ".expenses__list";
+        html =
+          '<div class="item" id="exp-%id%"> <div class="item__description">%description%</div> <div class="right"> <div class="item__value">- %value%</div> </div> </div>';
+      }
 
-        // 2. Replace the placeholder text with some actual data
-        newHtml = html.replace('%id%', obj.id);
-        newHtml = newHtml.replace('%description%', obj.description);
-        newHtml = newHtml.replace('%value%', obj.value);
+      // 2. Replace the placeholder text with some actual data
+      newHtml = html.replace("%id%", obj.id);
+      newHtml = newHtml.replace("%description%", obj.description);
+      newHtml = newHtml.replace("%value%", obj.value);
 
-        // 3. Insert the HTML into the DOM
-        // 'beforeend' means: put it inside the list, but after the last item.
-        document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+      // 3. Insert the HTML into the DOM
+      // 'beforeend' means: put it inside the list, but after the last item.
+      document.querySelector(element).insertAdjacentHTML("beforeend", newHtml);
     },
 
-    clearFields: function() {
-        let fields, fieldsArr;
+    clearFields: function () {
+      let fields, fieldsArr;
 
-        // Select both input fields
-        fields = document.querySelectorAll(DOMstrings.inputDesc + ', ' + DOMstrings.inputValue);
+      // Select both input fields
+      fields = document.querySelectorAll(
+        DOMstrings.inputDesc + ", " + DOMstrings.inputValue,
+      );
 
-        // Convert the "NodeList" to an "Array" so we can loop over it
-        fieldsArr = Array.prototype.slice.call(fields);
+      // Convert the "NodeList" to an "Array" so we can loop over it
+      fieldsArr = Array.prototype.slice.call(fields);
 
-        // Clear each field
-        fieldsArr.forEach(function(current, index, array) {
-            current.value = "";
-        });
+      // Clear each field
+      fieldsArr.forEach(function (current, index, array) {
+        current.value = "";
+      });
 
-        // Set focus back to the first field (description) for better UX
-        fieldsArr[0].focus();
+      // Set focus back to the first field (description) for better UX
+      fieldsArr[0].focus();
     },
 
-// ... keep your other functions (getInput, getDOMstrings)
+    // ... keep your other functions (getInput, getDOMstrings)
 
     updateTotal: function (total) {
       document.querySelector(DOMstrings.outputLabel).textContent =
@@ -150,24 +173,33 @@ const controller = (function (budgetCtrl, uiCtrl) {
     document.querySelector(DOM.addBtn).addEventListener("click", ctrlAddItem);
   };
 
-const ctrlAddItem = function() {
+  const ctrlAddItem = function () {
     // 1. Get the field input data
     const input = uiCtrl.getInput();
 
     if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
-        
-        // 2. Add the item to the budget controller
-        const newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-        
-        // 3. Add the item to the UI (NEW!)
-        uiCtrl.addListItem(newItem, input.type);
+      // 2. Add the item to the budget controller
+      const newItem = budgetCtrl.addItem(
+        input.type,
+        input.description,
+        input.value,
+      );
 
-        // 4. Clear the fields (NEW!)
-        uiCtrl.clearFields();
-        
-        // 5. Calculate and Update Budget (We will do this next)
+      // 3. Add the item to the UI (NEW!)
+      uiCtrl.addListItem(newItem, input.type);
+
+      // 4. Clear the fields (NEW!)
+      uiCtrl.clearFields();
+
+      // 5. Calculate and Update Budget (We will do this next)
     }
-};
+
+    // 5. Calculate and Update Budget
+    const budget = budgetController.calculateBudget();
+
+    // 6. Display the budget on the UI
+    document.querySelector("#output").textContent = "Total Budget: " + budget;
+  };
 
   return {
     init: function () {

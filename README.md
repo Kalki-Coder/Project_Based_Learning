@@ -34,9 +34,9 @@ This repository serves as a **hands-on learning log** for my practical experimen
 
 | Project Name | Stack | Type | Status |
 | :--- | :--- | :--- | :--- |
-| **Blog Review Card** | HTML/CSS/JS | Card | ✅ Completed |
-| **3D QR Component** | HTML/CSS/JS | Card | ✅ Completed |
-| **Social Link's Page** | HTML/CSS | Card Style | ✅ Completed |
+| [**Blog Review Card**](https://modern-blog-review.netlify.app/) | HTML/CSS/JS | Card | ✅ Completed |
+| [**3D QR Component**](https://glassmorphism-qr-component.netlify.app/) | HTML/CSS/JS | Card | ✅ Completed |
+| [**Social Link's Page**](https://sociallinks-portfolio.netlify.app/) | HTML/CSS | Card Style | ✅ Completed |
 
 ## 🚀 How to Run These Projects
 
@@ -44,7 +44,7 @@ Most projects here are separated into their own folders. To run a specific proje
 
 1.  **Clone the repo:**
     ```bash
-    git clone [https://github.com/Kalki-Coder/Random-Shit.git](https://github.com/Kalki-Coder/Random-Shit.git)
+    git clone https://github.com/Kalki-Coder/Random-Shit.git
     ```
 2.  **Navigate to the project folder:**
     ```bash

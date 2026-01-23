@@ -1,0 +1,77 @@
+:root {
+  --bg-clr: hsl(30, 54%, 90%);
+  --crd-clr: white;
+  --hed1-clr: hsl(14, 45%, 36%);
+  --hed2-clr: hsl(332, 51%, 32%);
+  --iner-crd-clr: hsl(330, 100%, 98%);
+  --bg-shdw: 0px 25px 50px -12px black;
+  --font-hed: "Young Serif", Serif;
+  --font-rest: "Outfit", sans-serif;
+
+}
+
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+/* box-shadow: 10px 5px 5px 2px rgba(0, 0, 0, 0.5); */
+/* Keyword syntax (Inset is the only keyword that changes position) */
+/* box-shadow: inset 10px 5px 5px 2px black; */
+/* A red shadow on top of a blue shadow */
+/* box-shadow: 3px 3px red, -1em 0 0.4em blue; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+    background-color: var(--bg-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+.container {
+    padding: 25px;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    border: 0.5px solid hwb(30 85% 11%);
+    background-color: var(--crd-clr);
+    box-shadow: var(--bg-shdw);
+    font-family: var(--font-rest);
+}
+
+.pic {
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.recipe_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+h1 {
+    font-family: var(--font-hed);
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--hed1-clr);
+    padding: 10px 0px;
+}
+
+.bullet-points {
+    font-weight: 700;
+}
+
+.main_heading {
+    font-size: 1.7rem;
+    color: black;;
+}
+
+.prep_time {
+    padding: 20px;
+}

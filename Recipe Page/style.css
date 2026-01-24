@@ -148,15 +148,22 @@ h1 {
     margin: 15px 0px;
 }
 
-.nutrition li {
-    list-style: none;
-    word-spacing: 200px;
-    margin: 10px;
-    padding-left: 10px;
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 12px 0;
+    padding-left: 32px;
+    border-bottom: 0.5px solid rgb(198, 198, 198);
 }
 
-.nutri_table {
-    line-height: 1.4rem;
+.value {
+    font-weight: 700;
+    color: var(--hed1-clr);
+    text-align: left;
+}
+
+.row:last-child {
+    border-bottom: none;
 }
 
 

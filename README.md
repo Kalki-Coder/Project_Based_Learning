@@ -37,6 +37,7 @@ This repository serves as a **hands-on learning log** for my practical experimen
 | [**Blog Review Card**](https://modern-blog-review.netlify.app/) | HTML/CSS/JS | Card | ✅ Completed |
 | [**3D QR Component**](https://glassmorphism-qr-component.netlify.app/) | HTML/CSS/JS | Card | ✅ Completed |
 | [**Social Link's Page**](https://sociallinks-portfolio.netlify.app/) | HTML/CSS | Card Style | ✅ Completed |
+| [**Recipe Page**](https://recipe-page-project-responsive.netlify.app/) | HTML/CSS | Card Style | ✅ Completed |
 
 ## 🚀 How to Run These Projects
 
@@ -60,9 +61,6 @@ Most projects here are separated into their own folders. To run a specific proje
     ```bash
     npm start
     ```
-
-## 📈 Activity Log
-* **18th Jan 2026** Started learning JavaScript Advanced Topic's.
 
 ## 🤝 Connect
 I am building in public to track my growth over a long horizon. If you see code that can be improved, feel free to open an issue or PR!

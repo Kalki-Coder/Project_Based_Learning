@@ -55,7 +55,7 @@ h1 {
   color: var(--hed1-clr);
   padding: 10px 0px;
   font-size: 1.7rem;
-  color: black
+  color: black; 
 }
 
 h2 {
@@ -124,10 +124,10 @@ h2 {
 
 .instructions ol li::marker {
   color: var(--hed1-clr);
-  font-weight: 650;
+  font-weight: bold;
 }
 
-.seperate {
+.section-divider {
   border-bottom: 1px solid rgb(198, 198, 198);
   margin-bottom: 15px;
   padding-bottom: 15px;
@@ -159,7 +159,7 @@ h2 {
     }
 
     .container {
-        padding: 10px;
+        padding: 0;
         max-width: 100%;
         border-radius: 0;
         box-shadow: 0;
@@ -167,7 +167,11 @@ h2 {
         font-size: 1rem;
     }
 
-    .seperate {
+    .mobile {
+      padding: 20px;
+    }
+
+    .section-divider {
         margin-bottom: 5px;
         padding-bottom: 5px;
     }

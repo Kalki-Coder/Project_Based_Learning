@@ -9,6 +9,20 @@ const list = document.querySelector(".task-list");
 // This array acts as our "Single Source of Truth."
 let tasks = [];
 
+function saveToLocalStorage() {
+  const savedData = localStorage.setItem("data", JSON.stringify(tasks));
+}
+
+function loadFromLocalStorage() {
+  const loadRawData = localStorage.getItem("data");
+  const refinedData = JSON.parse(loadRawData);
+  if (refinedData != null) {
+    tasks = refinedData;
+  } else {
+    tasks = [];
+  }
+}
+
 // --- 2. THE LOGIC (Modify Data) ---
 function addTask() {
   // Get value and remove extra whitespace from start/end
@@ -18,9 +32,10 @@ function addTask() {
   if (user_text != "") {
     // Create a new task object
     const newTaskObj = {
-      // Date.now() gives a unique number (timestamp) to use as an ID
-      id: Date.now(),
+      // crypto.randomUUID gives a unique number to use as an ID
+      id: crypto.randomUUID(),
       text: user_text,
+      completed: false,
     };
 
     // Push to our Database (Array)
@@ -28,6 +43,9 @@ function addTask() {
 
     // Clear the input field to prepare for the next entry
     user_input.value = "";
+
+    // Save data to local storage
+    saveToLocalStorage();
 
     // Update the screen now! (Sync View with Data)
     renderTask();
@@ -43,13 +61,12 @@ function addTask() {
 function renderTask() {
   // First clear the current HTML list (so we don't get duplicates)
   list.innerHTML = "";
-
   // Loop over each item of the saved data array
   tasks.forEach(function (task) {
     // Create a new list item (<li>)
     const li = document.createElement("li");
 
-    // Inject HTML. Note the 'data-id=${task.id}'. 
+    // Inject HTML. Note the 'data-id=${task.id}'.
     // We attach the ID to the HTML so we know which specific item to delete later.
     li.innerHTML = `
         <span>${task.text}</span>
@@ -75,8 +92,8 @@ function attchscanner() {
     btn.addEventListener("click", (event) => {
       // Retrieve the unique ID we stored in the HTML 'data-id' attribute
       // We convert it to a Number because HTML attributes are strings by default
-      const idToDelete = Number(event.target.dataset.id);
-      
+      const idToDelete = event.target.dataset.id;
+
       // Pass that ID to our logic function
       deleteTask(idToDelete);
     });
@@ -87,15 +104,23 @@ function attchscanner() {
 function deleteTask(id) {
   // We don't technically "delete"; we create a new array containing
   // everything EXCEPT the task with the matching ID.
+
   tasks = tasks.filter((task) => {
     return task.id !== id;
   });
+
+  // clear the data to refresh the local storage data
+  localStorage.clear();
+  saveToLocalStorage();
 
   // The array changed, so we must re-render the HTML to match
   renderTask();
 }
 
 // --- 5. INITIALIZATION ---
+// Loads the data from the local storage
+loadFromLocalStorage();
+
 // Render once on load (useful if you later add LocalStorage)
 renderTask();
 

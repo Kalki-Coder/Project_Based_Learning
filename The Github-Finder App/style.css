@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: Helvetica, sans-serif;
+    padding: 50px;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 440px;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0 10px 40px -12px black;
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 1px solid black;
+    box-shadow: 0 10px 40px -12px black;
+}

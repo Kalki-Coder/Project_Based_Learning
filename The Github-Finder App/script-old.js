@@ -1,3 +1,6 @@
+
+// Handled the data with old style .then (just for the understanding how it works.)
+
 const userInput = document.querySelector(".search-bar");
 const btn = document.querySelector(".search-btn");
 const card = document.querySelector(".card");

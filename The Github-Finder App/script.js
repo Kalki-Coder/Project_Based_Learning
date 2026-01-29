@@ -26,7 +26,9 @@ async function getUserData(text) {
           `https://api.github.com/users/${text}/repos`,
         );
         const repo_data = await repo_response.json();
-        const sortedData = repo_data.slice().sort((a, b) => b.stargazers_count - a.stargazers_count);
+        const sortedData = repo_data
+          .slice()
+          .sort((a, b) => b.stargazers_count - a.stargazers_count);
         renderRepos(sortedData);
       } catch (err) {
         console.error("Something went wrong:", err);
@@ -44,24 +46,24 @@ function renderTask(data) {
     login_name.textContent = data.login;
     bio.textContent = data.bio ? data.bio : "No bio available";
     avatar.src = data.avatar_url;
+    card.style.display = "block";
+    search_bar.style.display = "none";
   } else {
     alert("User doesn't exist");
+    card.style.display = "none";
   }
 }
 
 function renderRepos(data) {
-  if (data.message !== "Not Found") {
+  if (data.length !== 0) {
     repo_list.textContent = `Top 5 Repos of the ${data[0].owner.login}`;
-    const reduced_data = data.splice(0,5);
+    const reduced_data = data.splice(0, 5);
     reduced_data.forEach((element) => {
       const repo_lists = document.createElement("li");
       repo_lists.innerHTML = `<a  target="_blank" href="${element.html_url}">${element.name}</a>`;
       repo_list.appendChild(repo_lists);
     });
-    card.style.display = "block";
-    search_bar.style.display = "none";
   } else {
     alert("User is a noob");
-    card.style.display = "none";
   }
 }

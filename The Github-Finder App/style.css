@@ -32,3 +32,6 @@ img {
     border: 1px solid black;
     box-shadow: 0 10px 40px -12px black;
 }
+li {
+    list-style: none;
+}

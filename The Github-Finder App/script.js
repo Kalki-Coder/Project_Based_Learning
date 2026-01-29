@@ -26,7 +26,7 @@ async function getUserData(text) {
           `https://api.github.com/users/${text}/repos`,
         );
         const repo_data = await repo_response.json();
-        const sortedData = repo_data.slice().sort((a, b) => b.forks - a.forks);
+        const sortedData = repo_data.slice().sort((a, b) => b.stargazers_count - a.stargazers_count);
         renderRepos(sortedData);
       } catch (err) {
         console.error("Something went wrong:", err);
@@ -51,10 +51,11 @@ function renderTask(data) {
 
 function renderRepos(data) {
   if (data.message !== "Not Found") {
-    repo_list.value = `Top 5 Repos of the ${userInput.value.trim()}`;
-    const repo_lists = document.createElement("li");
-    data.array.forEach((element) => {
-      repo_lists.innerHTML = <a href="element.html_url">element.name</a>;
+    repo_list.textContent = `Top 5 Repos of the ${data[0].owner.login}`;
+    const reduced_data = data.splice(0,5);
+    reduced_data.forEach((element) => {
+      const repo_lists = document.createElement("li");
+      repo_lists.innerHTML = `<a  target="_blank" href="${element.html_url}">${element.name}</a>`;
       repo_list.appendChild(repo_lists);
     });
     card.style.display = "block";

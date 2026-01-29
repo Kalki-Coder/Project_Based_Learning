@@ -6,6 +6,7 @@ const avatar = document.querySelector(".user-image");
 const bio = document.querySelector(".user-bio");
 const search_bar = document.querySelector(".search-area");
 const repo_list = document.querySelector(".repos");
+const repo_head = document.querySelector(".repo_heading");
 
 btn.addEventListener("click", () => {
   const userText = userInput.value.trim();
@@ -47,7 +48,7 @@ function renderTask(data) {
     bio.textContent = data.bio ? data.bio : "No bio available";
     avatar.src = data.avatar_url;
     card.style.display = "block";
-    search_bar.style.display = "none";
+    // search_bar.style.display = "none";  // just here for the fun
   } else {
     alert("User doesn't exist");
     card.style.display = "none";
@@ -55,8 +56,9 @@ function renderTask(data) {
 }
 
 function renderRepos(data) {
+  repo_list.innerHTML = "";
   if (data.length !== 0) {
-    repo_list.textContent = `Top 5 Repos of the ${data[0].owner.login}`;
+    repo_head.textContent = `Top 5 Repos of the ${data[0].owner.login}`;
     const reduced_data = data.splice(0, 5);
     reduced_data.forEach((element) => {
       const repo_lists = document.createElement("li");

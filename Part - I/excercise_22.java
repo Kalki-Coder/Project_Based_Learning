@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class excercise_18 {
+public class excercise_22 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Give the first number:");

@@ -29,7 +29,7 @@ The exercises are organized by the course modules:
 ## 🚀 Future Goals
 This repository is part of a larger roadmap towards becoming an **Enterprise Software Engineer**.
 * ✅ **Phase 1:** Java Fundamentals (MOOC.fi)
-* ⬜ **Phase 2:** Data Structures & Algorithms
+* ⬜ **Phase 2:** Data Structures & Algorithms (For Development Only)
 * ⬜ **Phase 3:** Spring Boot & Enterprise Frameworks
 
 ---

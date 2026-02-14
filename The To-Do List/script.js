@@ -1,128 +1,192 @@
-// --- 0. SELECT DOM ELEMENTS ---
-// Grab the references to the HTML elements we need to interact with
-const user_input = document.querySelector(".task-input");
-const add_button = document.querySelector(".addbtn");
-const list = document.querySelector(".task-list");
+// --- CONFIGURATION & SELECTORS ---
+const elements = {
+  form: document.querySelector("#task-form"),
+  input: document.querySelector(".task-input"),
+  list: document.querySelector("#task-list"),
+  filterBtns: document.querySelectorAll(".filter-btn"),
+  emptyState: document.querySelector("#empty-state"),
+  progressFill: document.querySelector("#progress-fill"),
+  progressLabel: document.querySelector("#progress-label"),
+  toastContainer: document.querySelector("#toast-container"),
+};
 
-// --- 1. THE STATE (Data) ---
-// This lives outside so it remembers everything.
-// This array acts as our "Single Source of Truth."
-let tasks = [];
+// --- STATE MANAGEMENT ---
+let state = {
+  tasks: [],
+  filter: "all", // all, active, completed
+};
 
-function saveToLocalStorage() {
-  const savedData = localStorage.setItem("data", JSON.stringify(tasks));
+// --- INITIALIZATION ---
+function init() {
+  loadData();
+  render();
+  setupEventListeners();
 }
 
-function loadFromLocalStorage() {
-  const loadRawData = localStorage.getItem("data");
-  const refinedData = JSON.parse(loadRawData);
-  if (refinedData != null) {
-    tasks = refinedData;
-  } else {
-    tasks = [];
+// --- DATA LOGIC ---
+function saveData() {
+  localStorage.setItem("godLevelTasks", JSON.stringify(state.tasks));
+  render(); // Re-render on save to update counts/progress
+}
+
+function loadData() {
+  const data = localStorage.getItem("godLevelTasks");
+  if (data) state.tasks = JSON.parse(data);
+}
+
+function addTask(text) {
+  const newTask = {
+    id: crypto.randomUUID(),
+    text: text,
+    completed: false,
+    createdAt: Date.now(),
+  };
+  state.tasks.unshift(newTask); // Add to top
+  saveData();
+  showToast("Task added successfully!");
+}
+
+function toggleTask(id) {
+  const task = state.tasks.find((t) => t.id === id);
+  if (task) {
+    task.completed = !task.completed;
+    saveData();
   }
 }
 
-// --- 2. THE LOGIC (Modify Data) ---
-function addTask() {
-  // Get value and remove extra whitespace from start/end
-  const user_text = user_input.value.trim();
+function deleteTask(id) {
+  state.tasks = state.tasks.filter((t) => t.id !== id);
+  // Important: NOT clearing all local storage, only updating our key
+  saveData();
+  showToast("Task removed", "danger");
+}
 
-  // Validation: Ensure the user actually typed something
-  if (user_text != "") {
-    // Create a new task object
-    const newTaskObj = {
-      // crypto.randomUUID gives a unique number to use as an ID
-      id: crypto.randomUUID(),
-      text: user_text,
-      completed: false,
-    };
-
-    // Push to our Database (Array)
-    tasks.push(newTaskObj);
-
-    // Clear the input field to prepare for the next entry
-    user_input.value = "";
-
-    // Save data to local storage
-    saveToLocalStorage();
-
-    // Update the screen now! (Sync View with Data)
-    renderTask();
-  } else {
-    // Error handling
-    alert("Task input is not defined");
+function editTask(id) {
+  const task = state.tasks.find((t) => t.id === id);
+  const newText = prompt("Edit your task:", task.text);
+  if (newText !== null && newText.trim() !== "") {
+    task.text = newText.trim();
+    saveData();
   }
 }
 
-// --- 3. UI (Reflect Data) ---
-// This function wipes the list and rebuilds it based on the array.
-// It ensures the HTML always matches the 'tasks' array perfectly.
-function renderTask() {
-  // First clear the current HTML list (so we don't get duplicates)
-  list.innerHTML = "";
-  // Loop over each item of the saved data array
-  tasks.forEach(function (task) {
-    // Create a new list item (<li>)
-    const li = document.createElement("li");
+// --- RENDER LOGIC ---
+function render() {
+  // 1. Calculate Stats
+  const total = state.tasks.length;
+  const completed = state.tasks.filter((t) => t.completed).length;
+  const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
 
-    // Inject HTML. Note the 'data-id=${task.id}'.
-    // We attach the ID to the HTML so we know which specific item to delete later.
-    li.innerHTML = `
-        <span>${task.text}</span>
-        <button class="dlt_btn" data-id=${task.id}>X</button>
-    `;
+  // 2. Update Progress Bar
+  elements.progressFill.style.width = `${percent}%`;
+  elements.progressLabel.textContent = `${percent}% Done`;
 
-    // Add the new <li> to the actual <ul> in the DOM
-    list.appendChild(li);
+  // 3. Filter Tasks
+  let filteredTasks = state.tasks;
+  if (state.filter === "active") filteredTasks = state.tasks.filter((t) => !t.completed);
+  if (state.filter === "completed") filteredTasks = state.tasks.filter((t) => t.completed);
+
+  // 4. Update DOM
+  elements.list.innerHTML = "";
+  
+  if (filteredTasks.length === 0) {
+    elements.emptyState.classList.remove("hidden");
+  } else {
+    elements.emptyState.classList.add("hidden");
+    
+    filteredTasks.forEach((task) => {
+      const li = document.createElement("li");
+      li.className = `task-item ${task.completed ? "completed" : ""}`;
+      li.setAttribute("data-id", task.id);
+
+      // SECURITY NOTE: We use textContent for user input to prevent XSS
+      li.innerHTML = `
+        <div class="task-content">
+          <div class="checkbox">
+            ${task.completed ? '✔' : ''}
+          </div>
+          <span class="task-text"></span> 
+        </div>
+        <div class="actions">
+          <button class="btn-action btn-edit" aria-label="Edit">✎</button>
+          <button class="btn-action btn-delete" aria-label="Delete">🗑</button>
+        </div>
+      `;
+      
+      // Safe injection of user text
+      li.querySelector(".task-text").textContent = task.text;
+      
+      elements.list.appendChild(li);
+    });
+  }
+}
+
+// --- UI UTILITIES ---
+function showToast(message, type = "success") {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  if (type === "danger") toast.style.backgroundColor = "#ef4444";
+  
+  elements.toastContainer.appendChild(toast);
+  
+  // Remove after 3 seconds
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+// --- EVENT LISTENERS ---
+function setupEventListeners() {
+  // 1. Form Submit
+  elements.form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = elements.input.value.trim();
+    if (text) {
+      addTask(text);
+      elements.input.value = "";
+    } else {
+      showToast("Please enter a task!", "danger");
+    }
   });
 
-  // IMPORTANT: Since we just destroyed and recreated the HTML buttons,
-  // we must re-attach the event listeners to the new buttons.
-  attchscanner();
-}
+  // 2. Event Delegation for List (Clicks on Delete, Edit, Toggle)
+  elements.list.addEventListener("click", (e) => {
+    // Traverse up to find the list item (in case they clicked an icon inside)
+    const card = e.target.closest(".task-item");
+    if (!card) return;
+    
+    const id = card.dataset.id;
 
-// --- 4. EVENT LISTENERS (Interactions) ---
-// This finds the delete buttons *after* they are rendered and watches for clicks
-function attchscanner() {
-  // Select all buttons with class 'dlt_btn' currently on the screen
-  const dlt_btn = document.querySelectorAll(".dlt_btn");
+    // Handle Delete
+    if (e.target.closest(".btn-delete")) {
+      deleteTask(id);
+      return;
+    }
 
-  dlt_btn.forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      // Retrieve the unique ID we stored in the HTML 'data-id' attribute
-      // We convert it to a Number because HTML attributes are strings by default
-      const idToDelete = event.target.dataset.id;
+    // Handle Edit
+    if (e.target.closest(".btn-edit")) {
+      editTask(id);
+      return;
+    }
 
-      // Pass that ID to our logic function
-      deleteTask(idToDelete);
+    // Handle Toggle (Clicking anywhere else on the card)
+    toggleTask(id);
+  });
+
+  // 3. Filters
+  elements.filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Remove active class from all
+      elements.filterBtns.forEach((b) => b.classList.remove("active"));
+      // Add to clicked
+      btn.classList.add("active");
+      // Update State
+      state.filter = btn.dataset.filter;
+      render();
     });
   });
 }
 
-// Logic to remove an item from the array
-function deleteTask(id) {
-  // We don't technically "delete"; we create a new array containing
-  // everything EXCEPT the task with the matching ID.
-
-  tasks = tasks.filter((task) => {
-    return task.id !== id;
-  });
-
-  // clear the data to refresh the local storage data
-  localStorage.clear();
-  saveToLocalStorage();
-
-  // The array changed, so we must re-render the HTML to match
-  renderTask();
-}
-
-// --- 5. INITIALIZATION ---
-// Loads the data from the local storage
-loadFromLocalStorage();
-
-// Render once on load (useful if you later add LocalStorage)
-renderTask();
-
-// Listen for the main "Add" button click
-add_button.addEventListener("click", addTask);
+// Run the app
+init();

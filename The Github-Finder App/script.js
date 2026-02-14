@@ -48,7 +48,6 @@ function renderTask(data) {
     bio.textContent = data.bio ? data.bio : "No bio available";
     avatar.src = data.avatar_url;
     card.style.display = "block";
-    // search_bar.style.display = "none";  // just here for the fun
   } else {
     alert("User doesn't exist");
     card.style.display = "none";

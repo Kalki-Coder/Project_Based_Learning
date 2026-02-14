@@ -1,0 +1,94 @@
+:root {
+  --bg-main: rgb(213, 225, 239);
+  --card-white: rgba(255, 255, 255, 0.75); /* Lower opacity for glass effect */
+  --txt-primary: hsl(218, 44%, 22%);
+  --txt-secondary: hsl(220, 15%, 55%);
+  --accent-glow: rgba(46, 219, 231, 0.6);
+  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* x-offset y-offset blur spread color */
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-main);
+  font-family: "Outfit", sans-serif;
+  /* Subtle animated background mesh */
+  background-image: 
+  radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+  radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+  radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  perspective: 1000px;  /*Essential for 3D effect*/
+  overflow: hidden;
+}
+
+/* radial-gradient( size at <x-position> <y-position>, <start-color> <start-stop>, <end-color> <end-stop>), */
+
+.container {
+  /* Acts as the stage for the 3D object */
+  transform-style: preserve-3d;
+}
+
+.card {
+  width: 320px;
+  background: var(--card-white);
+  padding: 16px;
+  border-radius: 20px;
+  text-align: center;
+  
+  /* Glassmorphism Essentials */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow);
+  
+  /* Smooth reset for JS movement */
+  transition: transform 0.1s ease-out; 
+  transform-style: preserve-3d;
+}
+
+.qr-container {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  position: relative;
+  
+  /* Pop the image off the card in 3D space */
+  transform: translateZ(20px); 
+}
+
+.qr {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.content {
+  /* Pop the text off the card slightly less than the image */
+  transform: translateZ(10px);
+}
+
+h1 {
+  font-size: 1.375rem; /* 22px */
+  color: var(--txt-primary);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 0.938rem; /* 15px */
+  color: var(--txt-secondary);
+  line-height: 1.4;
+  margin-bottom: 24px;
+  padding: 0 10px;
+}

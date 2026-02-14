@@ -1,0 +1,112 @@
+/* Variables - Define your theme in one place */
+:root {
+  --bg-color: rgb(18, 18, 18);
+  --card-bg: rgba(30, 30, 30, 0.7);
+  --text-white: rgb(255, 255, 255);
+  --text-grey: rgb(161, 161, 170);
+  --ani-color: rgb(197, 248, 42);
+  --btn-bg: rgb(42, 42, 42);
+  --btn-hvr: rgb(197, 248, 42);
+  --btn-txt-hvr: rgb(0, 0, 0);
+  --font-main: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  width: 100%;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(197, 248, 42, 0.1) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(98, 0, 255, 0.1) 0%,
+      transparent 20%
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.pic-container {
+  margin-bottom: 16px;
+}
+
+.pic {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border: 3px solid var(--ani-color);
+  box-shadow: 0 0 20px rgba(197, 248, 42, 0.3);
+}
+
+.name {
+  color: var(--text-white);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.location {
+  color: var(--ani-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bio {
+  color: var(--text-grey);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.links a {
+  display: block;
+  background-color: var(--btn-bg);
+  color: var(--text-white);
+  padding: 16px;
+  border-radius: 12px;
+  text-decoration: dotted;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+    background-color: var(--btn-hvr);
+    color: var(--btn-txt-hvr);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(197, 248, 42, 0.2);
+}

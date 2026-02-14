@@ -1,0 +1,214 @@
+:root {
+  --bg-clr: hsl(30, 54%, 90%);
+  --crd-clr: white;
+  --hed1-clr: hsl(14, 45%, 36%);
+  --hed2-clr: hsl(332, 51%, 32%);
+  --iner-crd-clr: hsl(330, 100%, 98%);
+  --bg-shdw: 0px 25px 50px -12px black;
+  --font-hed: "Young Serif", Serif;
+  --font-rest: "Outfit", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--bg-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px;
+}
+
+.container {
+  padding: 25px;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 24px;
+  border: 1px solid hwb(30 85% 11%);
+  background-color: var(--crd-clr);
+  box-shadow: var(--bg-shdw);
+  font-family: var(--font-rest);
+  font-size: 0.8rem;
+  color: rgb(84, 84, 84);
+}
+
+.pic {
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.recipe_image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+h1 {
+  font-family: var(--font-hed);
+  font-weight: 400;
+  color: var(--hed1-clr);
+  padding: 10px 0px;
+  font-size: 1.7rem;
+  color: black; 
+}
+
+h2 {
+  font-family: var(--font-hed);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--hed1-clr);
+  padding: 10px 0px;
+}
+
+.bullet-points {
+  font-weight: 700;
+}
+
+.instructions .bullet-points {
+  color: var(--hed1-clr);
+}
+
+.q-intro {
+  margin-bottom: 24px;
+}
+
+.prep_time {
+  padding: 5px 0;
+  padding-left: 20px;
+  background-color: var(--iner-crd-clr);
+  border-radius: 12px;
+}
+
+.prep_time h2 {
+  font-family: var(--font-rest);
+  color: var(--hed2-clr);
+}
+
+.prep_time ul {
+  padding-left: 10px;
+}
+.prep_time ul li {
+  padding-left: 15px;
+  margin: 10px;
+}
+
+
+.ingredients ul {
+  padding-left: 10px;
+}
+
+.ingredients ul li {
+  padding-left: 10px;
+  margin: 7px;
+}
+
+.ingredients ul li::marker {
+  color: var(--hed1-clr);
+}
+
+
+.instructions ol {
+  padding-left: 13px;
+}
+
+.instructions ol li {
+  padding-left: 10px;
+  margin: 7px;
+}
+
+.instructions ol li::marker {
+  color: var(--hed1-clr);
+  font-weight: bold;
+}
+
+.section-divider {
+  border-bottom: 1px solid rgb(198, 198, 198);
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 12px 0;
+  padding-left: 32px;
+  border-bottom: 1px solid rgb(198, 198, 198);
+}
+
+.value {
+  font-weight: 700;
+  color: var(--hed1-clr);
+  text-align: left;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 440px) {
+    body {
+        padding: 0;
+        display: block;
+        background-color: white;
+    }
+
+    .container {
+        padding: 0;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: 0;
+        border: 0;
+        font-size: 1rem;
+    }
+
+    .mobile {
+      padding: 20px;
+    }
+
+    .section-divider {
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+    }
+
+    .pic {
+        margin-bottom: 5px;
+    }
+
+    .recipe_image {
+        border-radius: 0;
+    }
+    
+}
+
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+/* box-shadow: 10px 5px 5px 2px rgba(0, 0, 0, 0.5); */
+/* Keyword syntax (Inset is the only keyword that changes position) */
+/* box-shadow: inset 10px 5px 5px 2px black; */
+/* A red shadow on top of a blue shadow */
+/* box-shadow: 3px 3px red, -1em 0 0.4em blue; */
+
+/* advanced method to change marker in css */
+/* ol {
+    list-style: none;
+    counter-reset: recipe-steps;
+    padding-left: 0;
+}
+
+ol li {
+    counter-increment: recipe-steps;
+    margin-bottom: 1rem;
+}
+
+ol li::before {
+    content: counter(recipe-steps) ".";
+    padding-right: 10px;
+    margin-bottom: 10px;
+    font-weight: 650;
+    color: var(--hed1-clr);
+} */

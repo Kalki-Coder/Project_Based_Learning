@@ -1,29 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Github-Finder App</title>
+    <title>DevDetective | GitHub Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section class="search-area">
-      <h2 class="heading">Github-Finder</h2>
-      <input
-        type="text"
-        class="search-bar"
-        placeholder="Enter the username here"
-      />
-      <button class="search-btn">Search</button>
-    </section>
-    <section class="card">
-      <img src="" alt="user-image" class="user-image" />
-      <h3 class="user-name">user name comes here</h3>
-      <p class="user-bio">user bio comes here</p>
-      <h4 class="repo_heading">Top 5 Repos of the User</h4>
-      <ol class="repos">
-      </ol>
-    </section>
+    <div class="container">
+      <header>
+        <h2 class="logo"><i class="fab fa-github"></i> DevDetective</h2>
+        <div class="theme-toggle">
+          <p>LIGHT</p>
+          <i class="fas fa-sun" id="theme-icon"></i>
+        </div>
+      </header>
+
+      <section class="search-area">
+        <div class="search-bar-container">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Search GitHub username..."
+          />
+          <button class="search-btn">Search</button>
+        </div>
+        <p class="error-msg" id="no-results">No results</p>
+      </section>
+
+      <main class="profile-card" id="profile-card">
+        <div class="default-msg">
+            <i class="fab fa-github-alt"></i>
+            <h3>Search for a developer to see their details.</h3>
+        </div>
+      </main>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

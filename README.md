@@ -1,126 +1,71 @@
-<<<<<<< HEAD
-# 🚀 Project Based Learning: JavaScript Journey
+# 🚀 Project Based Learning
 
-A collection of vanilla JavaScript projects created to master the fundamentals of Web Development, DOM Manipulation, and Asynchronous programming. This repository documents my transition from "Tutorial Hell" to building functional, real-world applications.
+Welcome to my coding portfolio! This repository tracks my journey as a self-taught developer, featuring a collection of frontend challenges and web applications. Each project focuses on specific concepts, ranging from static layouts to dynamic JavaScript applications.
 
-## 📂 Projects
+## 📂 Project Directory
 
-### 1. GitHub Finder App
-**Description:** A search engine that utilizes the GitHub API to display user profiles and their top repositories.
-* **Key Features:**
-    * Fetches real-time data using `async/await` and the Fetch API.
-    * Displays user profile (Avatar, Bio, Name).
-    * Automatically sorts and lists the **Top 5 Repositories** based on star count.
-    * Handles errors gracefully (e.g., "User Not Found").
-* **Tech Stack:** HTML5, CSS3, JavaScript (ES6+).
-* **What I Learned:** API integration, JSON parsing, error handling with `try/catch`, and advanced DOM manipulation.
+Here is an overview of the projects currently in this repository:
 
-### 2. The Interactive To-Do List
-**Description:** A persistent task management tool to organize daily activities.
-* **Key Features:**
-    * Add, Delete, and "Mark as Done" functionality.
-    * **Data Persistence:** Uses Browser `localStorage` so data survives page refreshes.
-    * Prevents empty tasks and duplicate entries.
-* **Tech Stack:** HTML5, CSS3, JavaScript.
-* **What I Learned:** State management, `localStorage` (CRUD operations), Event Delegation, and Array methods (`.filter`, `.map`, `.forEach`).
+### 🌟 Web Applications (JavaScript)
+These projects involve logic, DOM manipulation, and API integration.
 
-## 🛠️ Technologies & Concepts Mastered
-This repository focuses on "Vanilla" JavaScript to build a strong foundation before moving to frameworks like React.
+| Project Name | Description & Key Skills |
+| :--- | :--- |
+| **The Github-Finder App** | A web app that searches for GitHub users and displays their profile data. <br>⚡ **Skills:** Fetch API, Asynchronous JavaScript, JSON handling. |
+| **The To-Do List** | A task management tool that persists data. <br>⚡ **Skills:** DOM Manipulation, Event Listeners, **LocalStorage** (for data persistence). |
 
-* **Core JS:** ES6 Syntax, Arrow Functions, Template Literals.
-* **Async Logic:** Promises, Async/Await, Fetch API.
-* **DOM:** Element creation, Event Listeners, Traversal.
-* **Storage:** LocalStorage & Session Management.
-* **Data Structures:** Array manipulation (Sorting, Filtering, Slicing).
+### 🎨 UI Components (HTML & CSS)
+These projects focus on pixel-perfect design, responsive layouts, and CSS styling.
+
+| Project Name | Description & Key Skills |
+| :--- | :--- |
+| [Blog Review Card](https://modern-blog-review.netlify.app/) | A stylistic card component often used in blogs. <br>🎨 **Skills:** CSS Flexbox, Typography, Card Design. |
+| [QR Component](https://glassmorphism-qr-component.netlify.app/) | A clean, center-aligned QR code card. <br>🎨 **Skills:** Image handling, Container alignment. |
+| [Recipe Page](https://recipe-page-project-responsive.netlify.app/) | A semantic HTML page displaying a recipe. <br>🎨 **Skills:** Semantic HTML5, Lists, Responsive spacing. |
+| [Social Link's Page](https://sociallinks-portfolio.netlify.app/) | A profile page specifically for social media links. <br>🎨 **Skills:** Button styling, Hover states, Mobile-first workflow. |
+
+## 🛠️ Tech Stack
+
+* **Languages:** HTML5, CSS3, JavaScript (ES6+)
+* **Concepts:** DOM Manipulation, REST APIs, Flexbox/Grid, LocalStorage
+* **Tools:** Git, GitHub
 
 ## 🚀 How to Run
-1.  Clone the repository:
+
+Since these are static web projects, you can view them easily in your browser:
+
+1.  **Clone the repository:**
     ```bash
     git clone [https://github.com/Kalki-Coder/Project_Based_Learning.git](https://github.com/Kalki-Coder/Project_Based_Learning.git)
     ```
-2.  Navigate to the project folder (e.g., `The Github-Finder App`).
-3.  Open `index.html` in your browser.
+2.  **Navigate to the folder:**
+    ```bash
+    cd Project_Based_Learning
+    ```
+3.  **Open a project:**
+    * Navigate into any project folder (e.g., `cd "The Github-Finder App"`).
+    * Open the `index.html` file in your browser (Double-click or drag into Chrome/Firefox).
 
 ## 🔮 Future Goals
-* Refactor the GitHub Finder using **Classes (OOP)**.
-* Rebuild these projects using **React.js**.
-* Expand into Mobile Development with **React Native**.
 
-## 👨‍💻 Author
+* Refactor existing CSS to use modern features like CSS Grid or Tailwind.
+* Add more complex JavaScript logic to the UI components.
+* Continue building towards full-stack Java development.
+
+## 🤝 Contributing
+
+Feedback is always welcome! If you have suggestions on how to improve the code:
+
+1.  Fork the Project
+2.  Create your Feature Branch
+3.  Commit your Changes
+4.  Push to the Branch
+5.  Open a Pull Request
+
+## 👤 Author
+
 **Kalki-Coder**
-* *Aspiring Full Stack & Mobile App Developer*
-* Focusing on building scalable web applications and mastering the JavaScript ecosystem.
+* **GitHub:** [Kalki-Coder](https://github.com/Kalki-Coder)
 
 ---
-*This project is licensed under the MIT License.*
-=======
-# Random-Shit 🚀📱💻
-
-> *A long-term code playground. Documenting the journey from "Hello World" to Full Stack & Mobile mastery.*
-
-## 📖 About This Repository
-This repository serves as a **hands-on learning log** for my practical experiments in software development. Unlike a polished production app, this is where I break things to learn how they work. 
-
-**The Long-Term Goal:** To bridge the gap between theory and practice in:
-1.  **Full Stack Web Development** (MERN, Next.js, etc.)
-2.  **Cross-Platform Mobile App Development** (React Native)
-
-## 🛠️ Tech Stack & Learning Path
-
-### 🌐 Phase 1: Web Foundations & Frontend
-*Projects focused on UI/UX, responsiveness, and interactivity.*
-* **Core:** HTML5, CSS3, JavaScript (ES6+)
-* **Libraries:** React.js, Tailwind CSS
-* **State Management:** Redux / Context API
-
-### 🔙 Phase 2: Backend & Full Stack
-*Building APIs, handling databases, and connecting the dots.*
-* **Server:** Node.js, Express
-* **Database:** MongoDB / PostgreSQL
-* **Auth:** JWT, Firebase, OAuth
-
-### 📱 Phase 3: Mobile Development (React Native)
-*Translating web knowledge into native mobile experiences.*
-* **Core:** React Native (CLI & Expo)
-* **Navigation:** React Navigation
-* **Native Features:** Camera, Geolocation, Sensors
-
-## 📂 Project Index
-*(This section will grow as I complete more hands-on projects)*
-
-| Project Name | Stack | Type | Status |
-| :--- | :--- | :--- | :--- |
-| [**Blog Review Card**](https://modern-blog-review.netlify.app/) | HTML/CSS/JS | Card | ✅ Completed |
-| [**3D QR Component**](https://glassmorphism-qr-component.netlify.app/) | HTML/CSS/JS | Card | ✅ Completed |
-| [**Social Link's Page**](https://sociallinks-portfolio.netlify.app/) | HTML/CSS | Card Style | ✅ Completed |
-| [**Recipe Page**](https://recipe-page-project-responsive.netlify.app/) | HTML/CSS | Card Style | ✅ Completed |
-
-## 🚀 How to Run These Projects
-
-Most projects here are separated into their own folders. To run a specific project:
-
-1.  **Clone the repo:**
-    ```bash
-    git clone https://github.com/Kalki-Coder/Random-Shit.git
-    ```
-2.  **Navigate to the project folder:**
-    ```bash
-    cd project-folder-name
-    ```
-3.  **Install dependencies (Check the specific folder's README):**
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
-4.  **Start the server:**
-    ```bash
-    npm start
-    ```
-
-## 🤝 Connect
-I am building in public to track my growth over a long horizon. If you see code that can be improved, feel free to open an issue or PR!
-
----
-*Created by [Kalki-Coder](https://github.com/Kalki-Coder) with ❤️*
->>>>>>> secondary/main
+*Self-taught and building one commit at a time.*

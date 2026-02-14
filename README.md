@@ -11,8 +11,8 @@ These projects involve logic, DOM manipulation, and API integration.
 
 | Project Name | Description & Key Skills |
 | :--- | :--- |
-| **The Github-Finder App** | A web app that searches for GitHub users and displays their profile data. <br>⚡ **Skills:** Fetch API, Asynchronous JavaScript, JSON handling. |
-| **The To-Do List** | A task management tool that persists data. <br>⚡ **Skills:** DOM Manipulation, Event Listeners, **LocalStorage** (for data persistence). |
+| [The Github-Finder App](https://find-github-app.netlify.app/) | A web app that searches for GitHub users and displays their profile data. <br>⚡ **Skills:** Fetch API, Asynchronous JavaScript, JSON handling. |
+| [The To-Do List](https://selftask-master.netlify.app/) | A task management tool that persists data. <br>⚡ **Skills:** DOM Manipulation, Event Listeners, **LocalStorage** (for data persistence). |
 
 ### 🎨 UI Components (HTML & CSS)
 These projects focus on pixel-perfect design, responsive layouts, and CSS styling.
@@ -36,7 +36,7 @@ Since these are static web projects, you can view them easily in your browser:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/Kalki-Coder/Project_Based_Learning.git](https://github.com/Kalki-Coder/Project_Based_Learning.git)
+    git clone https://github.com/Kalki-Coder/Project_Based_Learning.git
     ```
 2.  **Navigate to the folder:**
     ```bash
@@ -68,4 +68,4 @@ Feedback is always welcome! If you have suggestions on how to improve the code:
 * **GitHub:** [Kalki-Coder](https://github.com/Kalki-Coder)
 
 ---
-*Self-taught and building one commit at a time.*
+Self-taught and building one commit at a time.
